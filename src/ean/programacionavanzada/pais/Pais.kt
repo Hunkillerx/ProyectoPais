@@ -10,17 +10,13 @@
  * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
  */
 package ean.programacionavanzada.pais
-
-import ean.collections.IList
-import ean.collections.asLinkedList
-
-
+import ean.collections.*
 class Pais {
     //-----------------------------------------------------------------
     // Atributos
     //-----------------------------------------------------------------
-
-    // TODO: Completar, colocar aquí los atributos
+    private var departamentos = emptyList<Departamento>()
+    private var municipios = emptyList<Municipio>()
 
     //-----------------------------------------------------------------
     // Constructor
@@ -39,7 +35,8 @@ class Pais {
      * @param añoCreación
      */
     fun agregarDepartamento(nombre: String, superficie: Double, IDH: Double, añoCreación: Int) {
-
+        val d = Departamento(nombre,superficie,IDH,añoCreación)
+        departamentos.add(d)
     }
 
     /**
@@ -47,8 +44,7 @@ class Pais {
      * @return el tamaño de la lista de departamentos
      */
     fun numDepartamentos(): Int {
-        TODO("Completar")
-        return 0
+        return departamentos.size
     }
 
     /**
@@ -61,7 +57,8 @@ class Pais {
      * @param esCapital
      */
     fun agregarMunicipio(código: Int, nombre: String, departamento: String, poblaciónUrbana: Int, poblaciónRural: Int, esCapital: Boolean) {
-        TODO("Completar!!")
+        val m = Municipio(código,nombre,poblaciónRural,poblaciónUrbana,departamento,esCapital)
+        municipios.add(m)
     }
 
     /**
@@ -78,8 +75,12 @@ class Pais {
      * @return el número de municipios de ese departamento
      */
     fun municipioDepto(nomDepto: String): Int {
-        TODO()
-        return 0
+        var c = 0
+        for(mun in municipios){
+            if(mun.darDepartamento() == nomDepto)
+                ++c
+        }
+        return c
     }
 
     /**
@@ -88,7 +89,11 @@ class Pais {
      * @return el nombre del municipio, o la cadena vacía "" si no hay capital para ese departamento
      */
     fun obtenerCapitalDepartamento(nomDepto: String): String {
-        TODO()
+        for (mun in municipios){
+            if(mun.darDepartamento() == nomDepto && mun.darEsCapital()){
+                return mun.darNombre()
+            }
+        }
         return ""
     }
 
@@ -139,3 +144,4 @@ class Pais {
 
     // TODO
 }
+

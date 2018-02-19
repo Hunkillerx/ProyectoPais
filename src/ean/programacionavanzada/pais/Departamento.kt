@@ -29,7 +29,6 @@ class Departamento {
     //-----------------------------------------------------------------
     // Constructores - Debe inicializar todos los atributos
     //-----------------------------------------------------------------
-
     constructor()
 
     constructor(nombre: String, superficie: Double, IDH: Double, añoCreacion: Int) {

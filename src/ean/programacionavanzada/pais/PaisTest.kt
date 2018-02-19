@@ -26,19 +26,10 @@ internal class PaisTest {
     //-----------------------------------------------------------------
     // Métodos
     //-----------------------------------------------------------------
-
-    /**
-     * Configura el objeto país con el cual desarrollaremos los diversos ejercicios
-     * dentro del taller.
-     */
-    @BeforeAll
-    fun setUp() {
-        obtenerDepartamentos(pais)
-        obtenerMunicipios(pais)
-    }
-
     @Test
     fun test1() {
+        obtenerDepartamentos(pais)
+        obtenerMunicipios(pais)
         val n = pais.numDepartamentos()
 
         assertEquals(33, n, "El numero de deptos esta mal!")
@@ -46,6 +37,8 @@ internal class PaisTest {
 
     @Test
     fun test3() {
+        obtenerDepartamentos(pais)
+        obtenerMunicipios(pais)
         val n = pais.municipioDepto("Amazonas")
 
         assertEquals(11, n)
@@ -60,6 +53,8 @@ internal class PaisTest {
 
     @Test
     fun test4() {
+        obtenerDepartamentos(pais)
+        obtenerMunicipios(pais)
         val capital = pais.obtenerCapitalDepartamento("Vichada")
 
         assertEquals("Puerto Carreño", capital)
