@@ -11,6 +11,9 @@
  */
 package ean.programacionavanzada.pais
 
+import com.sun.beans.editors.DoubleEditor
+import com.sun.xml.internal.bind.v2.model.core.ID
+
 /**
  * Representa la información que se guarda de un Departamento de Colombia
  */
@@ -18,13 +21,28 @@ class Departamento {
     //-----------------------------------------------------------------
     // Atributos
     //-----------------------------------------------------------------
+    private var nombre:String =""
+    private var superficie:Double = 0.0
+    private var IDH: Double = 0.0
+    private var añoCreacion: Int = 0
 
     //-----------------------------------------------------------------
     // Constructores - Debe inicializar todos los atributos
     //-----------------------------------------------------------------
 
+    constructor()
+
+    constructor(nombre: String, superficie: Double, IDH: Double, añoCreacion: Int) {
+        this.nombre = nombre
+        this.superficie = superficie
+        this.IDH = IDH
+        this.añoCreacion = añoCreacion
+    }
     //-----------------------------------------------------------------
     // Métodos - Solo analizadores
     //-----------------------------------------------------------------
-
+    fun darNombre() = nombre
+    fun darSuperficie() = superficie
+    fun darIDH() = IDH
+    fun darAñoCreacion() = añoCreacion
 }

@@ -52,5 +52,6 @@ class Municipio {
     val noTienePoblacionRural
         get() = poblacionRural == 0
     fun darDepartamento() = departamento
+    fun darEsCapital() = esCapital
 
 }
