@@ -93,7 +93,7 @@ class Pais {
             if(mun.darDepartamento() == nomDepto && mun.darEsCapital()){
                 return mun.darNombre()
             }
-        }
+        }//No poner else ya que detengo la busqueda en el primer espacio
         return ""
     }
 
@@ -101,8 +101,8 @@ class Pais {
      * Obtener el municipio que tiene un nombre dado
      * @return el objeto departamento que tiene el  nombre dado, o null si no existe un depto
      */
-    fun obtenerDepartamento(nombreDepto: String): Departamento? {
-        TODO()
+    fun obtenerDepartamento(nombreDepto: String): Departamento? {//Se pone signo de interrogacion indicando que puede retorna null
+        for ()
         return null
     }
 
@@ -111,9 +111,17 @@ class Pais {
      * departamento.
      * @return un objeto de la clase departamento
      */
-
-    // TODO
-
+    fun darDptoMasGrande():Departamento{
+        var mayor = departamentos.first
+        var supMayor = mayor.darSuperficie()
+        for (depto in departamentos){
+            if(depto.darSuperficie() > supMayor){
+                mayor = depto
+                supMayor = mayor.darSuperficie()
+            }
+        }
+        return mayor
+    }
     /**
      * Obtener la población total de un departamento dado. Suma las poblaciones rurales y urbanas
      * de todos los municipios que tiene ese departamento
