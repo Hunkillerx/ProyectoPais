@@ -102,7 +102,11 @@ class Pais {
      * @return el objeto departamento que tiene el  nombre dado, o null si no existe un depto
      */
     fun obtenerDepartamento(nombreDepto: String): Departamento? {//Se pone signo de interrogacion indicando que puede retorna null
-        for ()
+        for (dep in departamentos){
+            if(dep.darNombre() == nombreDepto){
+                return dep
+            }
+        }
         return null
     }
 
@@ -127,14 +131,28 @@ class Pais {
      * de todos los municipios que tiene ese departamento
      * @return la suma de las poblaciones
      */
-
-    // TODO
-
+    fun poblacionDep(nombreDepto: String):Int{
+        var valPoblacion = 0
+        for (mun in municipios){
+            if (mun.darDepartamento() == nombreDepto){
+                    valPoblacion= (mun.darPoblacionRural() + mun.darPoblacionUrbana()) + valPoblacion
+                }
+            }
+        return valPoblacion
+        }
     /**
      * Obtener el número de departamentos creados en la decada de los 10 del siglo pasado
      * @return la cantidad de departamentos
      */
-
+    fun numDepartamentos10():Int{
+        var numDeps = 0
+        for(d in departamentos){
+            if ( d.darAñoCreacion() >=1910 && d.darAñoCreacion() <= 1919){
+                numDeps++
+            }
+        }
+        return numDeps
+    }
     // TODO
 
     /**
@@ -143,7 +161,15 @@ class Pais {
      * @param nombreDepto el nombre del departamento
      * @return la densidad = total_pobl / superficie
      */
-
+    fun densidadPobl(nombreDepto: String):Double{
+        var denPobl = 0.0
+        for (dep in departamentos){
+            if (dep.darNombre() == nombreDepto){
+                denPobl = poblacionDep(nombreDepto) / dep.darSuperficie()
+            }
+        }
+        return denPobl
+    }
     // TODO
 
     /**

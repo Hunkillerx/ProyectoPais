@@ -64,19 +64,27 @@ internal class PaisTest {
         val d = pais.obtenerDepartamento("Arauca")
 
         // Poblacion de Antioquia
+        val dd = pais.poblacionDep("Antioquia")
+        assertEquals(6600681,dd)
+
         // TODO: Compruebe que la poblacion total de Antioquia es de 6600681
 
         // Departamentos creados en la decada de los sesentas
         // TODO: Compruebe que hay 6 departamentos creados en la decada de los 10.
+        val ddd = pais.numDepartamentos10()
+        assertEquals(6,ddd)
 
         // TODO: Después de obtener el departamento más grande, compruebe que el nombre es "Amazonas"
         // y que la superficie de ese departamento es 109665
-
+        val d4 = pais.darDptoMasGrande()
+        assertEquals("Amazonas",d4.darNombre())
         // Densidad del departamento del Quindío
         var densidad = 0.0
         // TODO: Obtener aquí la densidad del departamento de Quindío
         // Y comprueba que su densidad es 309.1506 de la siguiente manera
         // assertEquals(309.1506, densidad, 0.0001)
+        val dddd = pais.densidadPobl("Quindio")
+        assertEquals(309.1506,dddd)
 
     }
 }
