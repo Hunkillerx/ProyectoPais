@@ -165,13 +165,17 @@ class Pais {
         var denPobl = 0.0
         for (dep in departamentos){
             if (dep.darNombre() == nombreDepto){
-                denPobl = poblacionDep(nombreDepto) / dep.darSuperficie()
+                var x = poblacionDep(nombreDepto)
+                var y = dep.darSuperficie()
+                denPobl = x/y
             }
         }
         return denPobl
     }
     // TODO
-
+    /**
+     * Sol los elementos protegidos pueden ser usado por los hijos
+     */
     /**
      * Cuántos municipios tienen no tienen población urbana
      */

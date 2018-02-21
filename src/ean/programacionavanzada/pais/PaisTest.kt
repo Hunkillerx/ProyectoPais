@@ -84,7 +84,7 @@ internal class PaisTest {
         // Y comprueba que su densidad es 309.1506 de la siguiente manera
         // assertEquals(309.1506, densidad, 0.0001)
         val dddd = pais.densidadPobl("Quindio")
-        assertEquals(309.1506,dddd)
+        assertEquals(309.1506,densidad,0.0001)
 
     }
 }
