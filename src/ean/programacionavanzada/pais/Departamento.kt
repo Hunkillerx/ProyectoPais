@@ -40,8 +40,8 @@ class Departamento {
     //-----------------------------------------------------------------
     // Métodos - Solo analizadores
     //-----------------------------------------------------------------
-    fun darNombre() = nombre
-    fun darSuperficie() = superficie
-    fun darIDH() = IDH
-    fun darAñoCreacion() = añoCreacion
+    fun darNombre():String = nombre
+    fun darSuperficie():Double = superficie
+    fun darIDH():Double = IDH
+    fun darAñoCreacion():Int = añoCreacion
 }

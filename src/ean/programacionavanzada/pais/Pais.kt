@@ -17,7 +17,6 @@ class Pais {
     //-----------------------------------------------------------------
     private var departamentos = emptyList<Departamento>()
     private var municipios = emptyList<Municipio>()
-
     //-----------------------------------------------------------------
     // Constructor
     //-----------------------------------------------------------------
@@ -66,10 +65,10 @@ class Pais {
      * @return el tamaño de la lista de municipios
      */
     fun numMunicipios(): Int {
-        TODO("Completar!")
+        return municipios.size
     }
 
-    /** Peremite obtener el número de municipios que hacen parte del departamento que
+    /** Permite obtener el número de municipios que hacen parte del departamento que
      * tiene el nombre dado.
      * @param nomDepto el departamento a buscar
      * @return el número de municipios de ese departamento
@@ -126,9 +125,12 @@ class Pais {
         }
         return mayor
     }
+
+
     /**
      * Obtener la población total de un departamento dado. Suma las poblaciones rurales y urbanas
      * de todos los municipios que tiene ese departamento
+     * @param nombreDepto Nombre del departamento a buscar
      * @return la suma de las poblaciones
      */
     fun poblacionDep(nombreDepto: String):Int{
@@ -140,6 +142,7 @@ class Pais {
             }
         return valPoblacion
         }
+
     /**
      * Obtener el número de departamentos creados en la decada de los 10 del siglo pasado
      * @return la cantidad de departamentos
@@ -153,7 +156,6 @@ class Pais {
         }
         return numDeps
     }
-    // TODO
 
     /**
      * Obtiene la densidad poblacional de un departamento. La densidad es la división entre la
@@ -164,22 +166,29 @@ class Pais {
     fun densidadPobl(nombreDepto: String):Double{
         var denPobl = 0.0
         for (dep in departamentos){
-            if (dep.darNombre() == nombreDepto){
-                var x = poblacionDep(nombreDepto)
-                var y = dep.darSuperficie()
-                denPobl = x/y
+            var nomDepto = dep.darNombre()
+            var supDepto = dep.darSuperficie()
+            var poblDepto = poblacionDep(nombreDepto)
+            if (nomDepto == nombreDepto) {
+                denPobl = poblDepto / supDepto
             }
         }
         return denPobl
     }
-    // TODO
-    /**
-     * Sol los elementos protegidos pueden ser usado por los hijos
-     */
+
     /**
      * Cuántos municipios tienen no tienen población urbana
+     * @return bandera: numero de municipios sin poblacion urbana
      */
-
-    // TODO
+    fun munNoPoblUrbana():Int{
+        var bandera = 0
+        for(mun in municipios){
+            var poblUrbana = mun.darPoblacionUrbana()
+            if(poblUrbana == 0) {
+                bandera++
+            }
+        }
+        return bandera
+    }
 }
 
